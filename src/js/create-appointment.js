@@ -1,4 +1,5 @@
 import { createAppointment } from "./crud-appointment.js";
+import { readAppointmentsHtml } from "./read-apointments.js";
 import { formatDateToYYYY_MM_DD } from "./utilities.js";
 
 const btnCreateAppointmentModal = document.getElementById('btn-create-appointment-modal');
@@ -17,12 +18,12 @@ actualDate = formatDateToYYYY_MM_DD(actualDate)
 
 dateInput.min = actualDate
 
-nameInput.value = 'Vicente Chemin'
-petNameInput.value = 'Miminha'
-phoneInput.value = '(47) 99122-5924'
-descriptionInput.value = 'Está passando mal'
-dateInput.value = actualDate
-timeInput.value = '13:00'
+// nameInput.value = 'Vicente Chemin'
+// petNameInput.value = 'Miminha'
+// phoneInput.value = '(47) 99122-5924'
+// descriptionInput.value = 'Está passando mal'
+// dateInput.value = actualDate
+// timeInput.value = '13:00'
 
 // Open modal
 btnCreateAppointmentModal.addEventListener('click', () => {
@@ -49,6 +50,8 @@ formCreateAppointment.addEventListener('submit', event => {
 
     createAppointment({name, petName, phone, description, when}).then(() => {
        alert('Consulta marcada com sucesso!')
+       readAppointmentsHtml({})
+       createAppointmentModal.setAttribute('hidden', true);
     }).catch(() => alert('Não foi possível marcar a consulta! Tente novamente mais tarde.'))
     
 })

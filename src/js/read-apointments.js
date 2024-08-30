@@ -7,7 +7,7 @@ const afternoonList = document.getElementById('afternoon-list');
 const nightList = document.getElementById('night-list');
 const dateFilter = document.getElementById('date-filter');
 
-async function createAppointmentsElements({date}) {
+async function readAppointmentsHtml({date}) {
     try {
         cleanLists()
         
@@ -15,7 +15,7 @@ async function createAppointmentsElements({date}) {
 
         for (const appointment of appointments) {
             const whenDate = new Date(appointment.when)
-            if(date && date !== formatDateToYYYY_MM_DD(whenDate)) return
+            if(date && date !== formatDateToYYYY_MM_DD(whenDate)) continue
            
             const hours = whenDate.getHours()
             const newAppointmentElement = createAppointmentElement({...appointment, when: whenDate})
@@ -72,8 +72,10 @@ function cleanLists() {
     nightList.innerHTML = ''
 }
 
-createAppointmentsElements({})
+readAppointmentsHtml({})
 
 dateFilter.addEventListener('input', () => {
-    createAppointmentsElements({date: dateFilter.value})
+    readAppointmentsHtml({date: dateFilter.value})
 })
+
+export {readAppointmentsHtml}
