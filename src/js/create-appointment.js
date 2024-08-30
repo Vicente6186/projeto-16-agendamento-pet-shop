@@ -1,5 +1,5 @@
 import { createAppointment } from "./crud-appointment.js";
-import { readAppointmentsHtml } from "./read-apointments.js";
+import { readAppointmentsHtml } from "./read-appointments.js";
 import { formatDateToYYYY_MM_DD } from "./utilities.js";
 
 const btnCreateAppointmentModal = document.getElementById('btn-create-appointment-modal');
@@ -33,6 +33,12 @@ btnCreateAppointmentModal.addEventListener('click', () => {
 // Close modal
 createAppointmentModal.addEventListener('click', event => {
     if(event.target.id === 'create-appointment-modal') createAppointmentModal.setAttribute('hidden', true);
+})
+
+// Mask to phone
+phoneInput.addEventListener('input', event => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, '').replace(/^0/, '')
+    phoneInput.value = `(${phoneInput.value.slice(0, 2)}) ${phoneInput.value.slice(2, 7)}-${phoneInput.value.slice(7, 11)}`
 })
 
 formCreateAppointment.addEventListener('submit', event => {
