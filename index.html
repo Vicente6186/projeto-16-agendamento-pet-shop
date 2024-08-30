@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de petshop</title>
+    <link rel="stylesheet" href="src/css/index.css">
+</head>
+<body>
+    
+    
+    <img src="src/assets/brand.svg" alt="Logo do site" id="brand">
+    
+    
+    <div id="container">
+        
+        <header>
+            <div>
+                <h1>Sua agenda</h1>
+                <p>Aqui você pode ver todos os clientes e serviços agendados para hoje.</p>
+            </div>
+            <div class="field-wrapper">
+                <div class="input-wrapper">
+                    <img src="src/assets/input-icons/Calendar-Minimalistic--Streamline-Solar.svg" alt="Ícone do campo" class="input-icon">
+                    <input type="date" name="date-filter" id="date-filter" class="input-text input-date">
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <section id="moring">
+                <header>
+                    <img src="src/assets/Sun-Fog--Streamline-Solar.svg" alt="Ícone que representa a manhã">
+                    <h2>Manhã</h2>
+                    <span>09h-12h</span>
+                </header>
+                
+                <ul id="morning-list"></ul>
+            </section>
+            
+            <section id="afternoon">
+                <header>
+                    <img src="src/assets/Cloud-Sun-4--Streamline-Solar.svg" alt="Ícone que representa a manhã">
+                    <h2>Tarde</h2>
+                    <span>13h-18h</span>
+                </header>
+                
+                <ul id="afternoon-list"></ul>
+            </section>
+            
+            <section id="night">
+                <header>
+                    <img src="src/assets/Moon-Stars--Streamline-Solar.svg" alt="Ícone que representa a manhã">
+                    <h2>Noite</h2>
+                    <span>19h-21h</span>
+                </header>
+                
+                <ul id="night-list"></ul>
+            </section>
+            <button class="btn" id="btn-create-appointment-modal">Novo agendamento</button>
+        </main>
+        
+        
+    </div>
+
+    <div class="form-wrapper" id="create-appointment-modal" hidden>
+        <form>
+            <h2>Agende um atendimento</h2>
+            <p>Preencha os dados do cliente para realizar o agendamento:</p>
+    
+            <div>
+                <div class="field-wrapper">
+                    <label for="name">Nome do autor</label>
+                    <div class="input-wrapper">
+                        <img src="src/assets/input-icons/User--Streamline-Solar.svg" alt="Ícone que representa uma pessoa" class="input-icon">
+                        <input type="text" name="name" id="name" class="input-text" placeholder="Helena Souza" required>
+                    </div>
+                </div>
+        
+                <div class="field-wrapper">
+                    <label for="pet-name">Nome do pet</label>
+                    <div class="input-wrapper">
+                        <img src="src/assets/input-icons/Pet-Paw--Streamline-Core.svg" alt="Ícone que representa um animal" class="input-icon">
+                        <input type="text" name="pet-name" id="pet-name" class="input-text" placeholder="Cheddar" required>
+                    </div>
+                </div>
+        
+                <div class="field-wrapper">
+                    <label for="phone">Telefone</label>
+                    <div class="input-wrapper">
+                        <img src="src/assets/input-icons/Phone--Streamline-Solar.svg" alt="Ícone que representa um telefone" class="input-icon">
+                        <input type="text" name="phone" id="phone" class="input-text" placeholder="(00) 0 0000-0000" required>
+                    </div>
+                </div>
+        
+                <div class="field-wrapper">
+                    <label for="description">Descrição do serviço</label>
+                    <textarea name="description" id="description" class="input-text" placeholder="Banho e tosa" required></textarea>
+                </div>
+        
+                <div class="field-wrapper">
+                    <label for="date">Data</label>
+                    <div class="input-wrapper">
+                        <img src="src/assets/input-icons/Calendar-Minimalistic--Streamline-Solar.svg" alt="Ícone que representa um calendário" class="input-icon">
+                        <input type="date" name="date" id="date"  class="input-text input-date" required>
+                    </div>
+                </div>
+        
+                <div class="field-wrapper">
+                    <label for="time">Hora</label>
+                    <div class="input-wrapper">
+                        <img src="src/assets/input-icons/Clock-Circle--Streamline-Solar.svg" alt="Ícone que representa um relógio" class="input-icon">
+                       <select name="time" id="time" class="input-text input-time" required>
+                        <option value="">00:00</option>
+                        <option value="09:00">9:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                       </select>
+                    </div>
+                </div>
+            </div>
+    
+            <button class="btn" type="submit">Agendar</button>
+        </form>
+    </div>
+    
+    <script type="module" src="src/js/read-apointments.js"></script>
+    <script type="module" src="src/js/create-appointment.js"></script>
+</body>
+</html>
